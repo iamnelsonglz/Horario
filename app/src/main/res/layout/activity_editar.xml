@@ -24,6 +24,7 @@
         android:id="@+id/txtModFecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="AAAA-MM-DD"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="date"
@@ -33,11 +34,12 @@
         android:id="@+id/mentrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de entrada:"/>
+        android:text="Hora de entrada: (formato 24h)"/>
     <EditText
         android:id="@+id/txtModEntrada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="hh:mm"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="time"
@@ -46,11 +48,12 @@
         android:id="@+id/msalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de salida:"/>
+        android:text="Hora de salida: (formato 24h)"/>
     <EditText
         android:id="@+id/txtModSalida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="hh:mm"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="time"
@@ -61,12 +64,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Guardar modificación"
+            android:backgroundTint="@color/verde"
             android:onClick="funEditar"/>
         <Button
             android:id="@+id/btnDel"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/rojito"
             android:text="Borrar"
             android:onClick="funEliminar"/>
 </LinearLayout>

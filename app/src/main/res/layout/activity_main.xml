@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:id="@+id/layout">
+    android:id="@+id/layout"
+    android:background="@color/claro"
+    >
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -29,6 +31,7 @@
                 android:id="@+id/btn_entrada"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/verde"
                 android:text="Registrar \nentrada de hoy"
                 android:onClick="funEntrada"
                 android:layout_marginRight="10dp"
@@ -37,6 +40,7 @@
                 android:id="@+id/btn_salida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/rojito"
                 android:text="Registrar \nsalida de hoy"
                 android:onClick="funSalida"
                 android:layout_marginLeft="10dp"
@@ -49,8 +53,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
+        android:backgroundTint="@color/oscuro"
+        android:textColor="@color/claro"
         android:textSize="15dp"
-        android:text="Agregar horas "
+        android:text="Agregar horas \nmanualmente"
         android:onClick="funAdd"/>
 
         <androidx.recyclerview.widget.RecyclerView

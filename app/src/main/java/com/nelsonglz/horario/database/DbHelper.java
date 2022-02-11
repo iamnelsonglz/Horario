@@ -10,7 +10,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     //Idendentificadores para la BDD y la version
     public static final String NOMBRE_BD="bdServicio";
-    public static final int VERSION_BD=1;
+    public static final int VERSION_BD=2;
 
     //Identificadores para la tabla y sus campos
     public static final String NOMBRE_TABLA="horas";
@@ -26,10 +26,10 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+NOMBRE_TABLA+" (" +
-                "fecha TEXT PRIMARY KEY, " +
-                "entrada TEXT NOT NULL, " +
-                "salida TEXT DEFAULT '00:00'," +
-                "horas TEXT DEFAULT '00:00')");
+                "fecha DATE PRIMARY KEY, " +
+                "entrada TIME NOT NULL, " +
+                "salida TIME DEFAULT '00:00'," +
+                "horas TIME DEFAULT '00:00')");
     }
 
     @Override
