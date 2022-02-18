@@ -3,16 +3,22 @@ package com.nelsonglz.horario;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.nelsonglz.horario.database.DbHoras;
 import com.nelsonglz.horario.entidades.Horas;
+
+import java.util.Calendar;
 
 public class EditarActivity extends AppCompatActivity {
 
@@ -55,26 +61,30 @@ public class EditarActivity extends AppCompatActivity {
         DbHoras db = new DbHoras(EditarActivity.this);
         String hentrada = txtEntrada.getText().toString();
         String hsalida = txtSalida.getText().toString();
-        long c = db.editarHora(fecha,hentrada,hsalida);
-        if(c>0){
-            boolean d = db.registroTotal(fecha);
-            if(d==true){
-                Toast.makeText(this, "Registro de hora modificado", Toast.LENGTH_SHORT).show();
-                txtFecha.setText("");
-                txtEntrada.setText("");
-                txtSalida.setText("");
-                //Regresar al main
-                //Intent intent = new Intent(this,MainActivity.class);
-                startActivity(new Intent(getBaseContext(), MainActivity.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
-                finish();
-                //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                //startActivity(intent);
-            }else{
+        if(hentrada.isEmpty() || hsalida.isEmpty()){
+            Toast.makeText(this, "No se pueden dejar campos vacios", Toast.LENGTH_SHORT).show();
+        }else {
+            long c = db.editarHora(fecha, hentrada, hsalida);
+            if (c > 0) {
+                boolean d = db.registroTotal(fecha);
+                if (d == true) {
+                    Toast.makeText(this, "Registro de hora modificado", Toast.LENGTH_SHORT).show();
+                    txtFecha.setText("");
+                    txtEntrada.setText("");
+                    txtSalida.setText("");
+                    //Regresar al main
+                    //Intent intent = new Intent(this,MainActivity.class);
+                    startActivity(new Intent(getBaseContext(), MainActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP));
+                    finish();
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    //startActivity(intent);
+                } else {
 
+                }
+            } else {
+                Toast.makeText(this, "No se pudo modificar el registro de la hora", Toast.LENGTH_SHORT).show();
             }
-        }else{
-            Toast.makeText(this, "No se pudo modificar el registro de la hora", Toast.LENGTH_SHORT).show();
         }
     }
     public void funEliminar(View v){
@@ -101,5 +111,57 @@ public class EditarActivity extends AppCompatActivity {
 
             }
         }).show();
+    }
+    public void funModEntrada(View view){
+        Calendar calendario = Calendar.getInstance();
+        int vhour = calendario.get(Calendar.HOUR_OF_DAY);
+        int vminute = calendario.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(EditarActivity.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                String shour,sminute;
+                // Hora a String
+                if (hourOfDay<10){
+                    shour = "0"+hourOfDay;
+                }else{
+                    shour = ""+hourOfDay;
+                }
+                // Minuto a String
+                if (minute<10){
+                    sminute = "0"+minute;
+                }else{
+                    sminute = ""+minute;
+                }
+                txtEntrada.setText(shour+":"+sminute);
+            }
+        },vhour,vminute,true);
+        timePickerDialog.show();
+    }
+    public void funModSalida(View view){
+        Calendar calendario = Calendar.getInstance();
+        int vhour = calendario.get(Calendar.HOUR_OF_DAY);
+        int vminute = calendario.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(EditarActivity.this, new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+                String shour,sminute;
+                // Hora a String
+                if (hourOfDay<10){
+                    shour = "0"+hourOfDay;
+                }else{
+                    shour = ""+hourOfDay;
+                }
+                // Minuto a String
+                if (minute<10){
+                    sminute = "0"+minute;
+                }else{
+                    sminute = ""+minute;
+                }
+                txtSalida.setText(shour+":"+sminute);
+            }
+        },vhour,vminute,true);
+        timePickerDialog.show();
     }
 }

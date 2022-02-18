@@ -27,7 +27,6 @@
         android:hint="AAAA-MM-DD"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="date"
         android:labelFor="@+id/mfecha"
         android:enabled="false"/>
     <TextView
@@ -42,7 +41,8 @@
         android:hint="hh:mm"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="time"
+        android:editable="false"
+        android:onClick="funModEntrada"
         android:labelFor="@+id/mentrada" />
     <TextView
         android:id="@+id/msalida"
@@ -56,7 +56,8 @@
         android:hint="hh:mm"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="time"
+        android:editable="false"
+        android:onClick="funModSalida"
         android:labelFor="@+id/msalida" />
         <Button
             android:id="@+id/btnMod"

@@ -19,7 +19,8 @@
         android:id="@+id/afecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha:"/>
+        android:text="Fecha:"
+        />
     <EditText
         android:id="@+id/txtAddFecha"
         android:layout_width="match_parent"
@@ -27,8 +28,10 @@
         android:hint="AAAA-MM-DD"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="date"
-        android:labelFor="@+id/afecha" />
+        android:editable="false"
+        android:labelFor="@+id/afecha"
+        android:onClick="funAddFecha"
+        />
     <TextView
         android:id="@+id/aentrada"
         android:layout_width="wrap_content"
@@ -41,29 +44,33 @@
         android:hint="hh:mm"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="time"
-        android:labelFor="@+id/aentrada" />
+        android:editable="false"
+        android:labelFor="@+id/aentrada"
+        android:onClick="funAddEntrada"/>
     <TextView
         android:id="@+id/asalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hora de salida: (formato 24h)"/>
+
     <EditText
         android:id="@+id/txtAddSalida"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="hh:mm"
         android:layout_weight="1"
+        android:editable="false"
         android:ems="10"
-        android:inputType="time"
-        android:labelFor="@+id/asalida" />
+        android:hint="hh:mm"
+        android:labelFor="@+id/asalida"
+        android:onClick="funAddSalida"/>
+
     <Button
         android:id="@+id/btnAdd"
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="@color/verde"
-        android:text="Guardar modificación"
+        android:text="Guardar registro"
         android:onClick="funAddRegistro"/>
 
 </LinearLayout>

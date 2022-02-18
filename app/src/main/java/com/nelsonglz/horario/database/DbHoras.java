@@ -119,7 +119,7 @@ public class DbHoras extends DbHelper {
         // Se registra el calculo de las horas trabajadas
         try {
             db.execSQL("UPDATE " + NOMBRE_TABLA + " SET horas  = " +
-                    "(SELECT round((julianday(salida)-julianday(entrada))*24*60 ,0) " +
+                    "(SELECT round((julianday(salida)-julianday(entrada))*24*60,0) " +
                     "FROM " + NOMBRE_TABLA + " WHERE fecha = '" + fecha + "') WHERE fecha = '" + fecha + "';");
             v = true;
         } catch (Exception e) {
@@ -136,7 +136,7 @@ public class DbHoras extends DbHelper {
         Horas hora = null;
         Cursor cursor = null;
 
-        cursor = db.rawQuery("SELECT fecha,entrada,salida,horas/60 FROM " + NOMBRE_TABLA, null);
+        cursor = db.rawQuery("SELECT fecha,entrada,salida,round(julianday(horas)/60) FROM " + NOMBRE_TABLA, null);
         if (cursor.moveToFirst()) {
             do {
                 hora = new Horas();

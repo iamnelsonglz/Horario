@@ -16,26 +16,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="5dp"
         android:text="Lista de horas"
         android:textSize="30sp"
         android:textStyle="bold" />
+
     <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
             android:orientation="horizontal"
            android:layout_gravity="center" >
 
-            <Button
-                android:id="@+id/btn_entrada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/verde"
-                android:text="Registrar \nentrada de hoy"
-                android:onClick="funEntrada"
-                android:layout_marginRight="10dp"
-                />
-            <Button
+        <Button
+            android:id="@+id/btn_entrada"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:backgroundTint="@color/verde"
+            android:onClick="funEntrada"
+            android:text="Registrar \nentrada de hoy" />
+
+        <Button
                 android:id="@+id/btn_salida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +52,7 @@
         </LinearLayout>
 
     <Button
-        android:id="@+id/txtAcumHoras"
+        android:id="@+id/btn_manual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

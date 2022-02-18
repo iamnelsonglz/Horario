@@ -26,10 +26,10 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE "+NOMBRE_TABLA+" (" +
-                "fecha DATE PRIMARY KEY, " +
-                "entrada TIME NOT NULL, " +
-                "salida TIME DEFAULT '00:00'," +
-                "horas TIME DEFAULT '00:00')");
+                "fecha TEXT PRIMARY KEY, " +
+                "entrada TEXT NOT NULL, " +
+                "salida TEXT DEFAULT '00:00'," +
+                "horas TEXT DEFAULT '00:00')");
     }
 
     @Override

@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.nelsonglz.horario.adaptadores.ListaHorasAdapter;
@@ -16,6 +17,7 @@ import com.nelsonglz.horario.database.DbHoras;
 import com.nelsonglz.horario.entidades.Horas;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,10 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Referencias a las vistas
     private RecyclerView vLista;
-    private TextView vTxt;
 
     // Referencias a los botones
-    private Button vBtnEntrada, vBtnSalida;
+    private Button vBtnEntrada, vBtnSalida,vBtnManual;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +41,17 @@ public class MainActivity extends AppCompatActivity {
 
         // Se instancian las vistas
         vLista = findViewById(R.id.listaHoras);
-        vTxt = findViewById(R.id.txtAcumHoras);
 
         // Se instancian los botones
         vBtnEntrada = findViewById(R.id.btn_entrada);
         vBtnSalida = findViewById(R.id.btn_salida);
+        vBtnManual = findViewById(R.id.btn_manual);
 
         vLista.setLayoutManager(new LinearLayoutManager(this));
 
         // Se muestran las horas disponibles
 
         funMostrar();
-
     }
 
     @Override
@@ -148,8 +148,9 @@ public class MainActivity extends AppCompatActivity {
         DbHoras db = new DbHoras(MainActivity.this);
         Horas hora;
         hora = db.acumHora();
+        String h = hora+"";
 
-        if(hora.getAhoras()==null){
+        if(hora.getAhoras().isEmpty() || hora.getAhoras().equals("")){
             Toast.makeText(this,"Horas acumuladas: 0",Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this,"Horas acumuladas: "+hora.getAhoras(),Toast.LENGTH_LONG).show();
@@ -166,12 +167,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String funObtenerHora(){
-        String time = new SimpleDateFormat("HH:mm").format(new Date());
+
+        Calendar calendario = Calendar.getInstance();
+        int hour = calendario.get(Calendar.HOUR_OF_DAY);
+        int minute = calendario.get(Calendar.MINUTE);
+        String shour,sminute;
+        // Hora a String
+        if (hour<10){
+            shour = "0"+hour;
+        }else{
+            shour = ""+hour;
+        }
+        // Minuto a String
+        if (minute<10){
+            sminute = "0"+minute;
+        }else{
+            sminute = ""+minute;
+        }
+        String time = (shour+":"+sminute);
         return time;
     }
 
     private String funObtenerFecha(){
-        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        Calendar calendario = Calendar.getInstance();
+        int year = calendario.get(Calendar.YEAR);
+        int month = calendario.get(Calendar.MONTH);
+        int day = calendario.get(Calendar.DAY_OF_MONTH);
+        String smonth;
+        month+=1;
+        // Mes a String
+        if (month<10){
+            smonth = "0"+month;
+        }else{
+            smonth = ""+month;
+        }
+        String date = year+"-"+smonth+"-"+day;
         return date;
     }
 }
