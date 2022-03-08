@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:backgroundTint="@color/verde"
+            android:backgroundTint="@color/green"
             android:onClick="funEntrada"
             android:text="Registrar \nentrada de hoy" />
 
@@ -44,7 +44,7 @@
                 android:id="@+id/btn_salida"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/rojito"
+                android:backgroundTint="@color/red"
                 android:text="Registrar \nsalida de hoy"
                 android:onClick="funSalida"
                 android:layout_marginLeft="10dp"
@@ -57,8 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:backgroundTint="@color/oscuro"
-        android:textColor="@color/claro"
+        android:backgroundTint="@color/blue"
         android:textSize="15dp"
         android:text="Agregar horas \nmanualmente"
         android:onClick="funAdd"/>

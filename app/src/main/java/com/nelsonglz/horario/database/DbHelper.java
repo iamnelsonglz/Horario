@@ -10,7 +10,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     //Idendentificadores para la BDD y la version
     public static final String NOMBRE_BD="bdServicio";
-    public static final int VERSION_BD=2;
+    public static final int VERSION_BD=3;
 
     //Identificadores para la tabla y sus campos
     public static final String NOMBRE_TABLA="horas";

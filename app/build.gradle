@@ -9,8 +9,8 @@ android {
         applicationId "com.nelsonglz.horario"
         minSdk 24
         targetSdk 31
-        versionCode 4
-        versionName "0.4b"
+        versionCode 7
+        versionName "0.4.2 beta"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,7 +28,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'

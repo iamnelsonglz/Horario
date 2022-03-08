@@ -32,6 +32,10 @@ public class EditarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar);
 
+        // Colocar icono a ActionBar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         txtFecha = findViewById(R.id.txtModFecha);
         txtEntrada = findViewById(R.id.txtModEntrada);
         txtSalida = findViewById(R.id.txtModSalida);

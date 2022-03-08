@@ -33,7 +33,8 @@
         android:id="@+id/mentrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de entrada: (formato 24h)"/>
+        android:text="Hora de entrada: (formato 24h)"
+        android:onClick="funModEntrada"/>
     <EditText
         android:id="@+id/txtModEntrada"
         android:layout_width="match_parent"
@@ -48,7 +49,8 @@
         android:id="@+id/msalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de salida: (formato 24h)"/>
+        android:text="Hora de salida: (formato 24h)"
+        android:onClick="funModSalida"/>
     <EditText
         android:id="@+id/txtModSalida"
         android:layout_width="match_parent"
@@ -65,14 +67,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Guardar modificación"
-            android:backgroundTint="@color/verde"
+            android:backgroundTint="@color/green"
             android:onClick="funEditar"/>
         <Button
             android:id="@+id/btnDel"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:backgroundTint="@color/rojito"
+            android:backgroundTint="@color/red"
             android:text="Borrar"
             android:onClick="funEliminar"/>
 </LinearLayout>

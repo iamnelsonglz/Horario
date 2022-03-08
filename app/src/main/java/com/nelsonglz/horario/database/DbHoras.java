@@ -136,7 +136,7 @@ public class DbHoras extends DbHelper {
         Horas hora = null;
         Cursor cursor = null;
 
-        cursor = db.rawQuery("SELECT fecha,entrada,salida,round(julianday(horas)/60) FROM " + NOMBRE_TABLA, null);
+        cursor = db.rawQuery("SELECT fecha,entrada,salida,round(horas/60) FROM " + NOMBRE_TABLA+" ORDER BY fecha DESC", null);
         if (cursor.moveToFirst()) {
             do {
                 hora = new Horas();

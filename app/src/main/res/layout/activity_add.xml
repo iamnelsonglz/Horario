@@ -1,57 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:layout_margin="30dp"
+    android:orientation="vertical"
     tools:context=".AddActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:text="Agregar registro de horas"
-        android:textStyle="bold"
         android:textSize="30sp"
-        android:layout_marginBottom="20dp"/>
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/afecha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fecha:"
-        />
-    <EditText
-        android:id="@+id/txtAddFecha"
+        android:onClick="funAddFecha"
+        android:text="Fecha:" />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="AAAA-MM-DD"
-        android:layout_weight="1"
-        android:ems="10"
-        android:editable="false"
-        android:labelFor="@+id/afecha"
-        android:onClick="funAddFecha"
-        />
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtAddFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:editable="false"
+            android:ems="10"
+            android:hint="AAAA-MM-DD"
+            android:labelFor="@+id/afecha"
+            android:onClick="funAddFecha" />
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/aentrada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de entrada: (formato 24h)"/>
+        android:onClick="funAddEntrada"
+        android:text="Hora de entrada: (formato 24h)" />
+
     <EditText
         android:id="@+id/txtAddEntrada"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="hh:mm"
         android:layout_weight="1"
-        android:ems="10"
         android:editable="false"
+        android:ems="10"
+        android:hint="hh:mm"
         android:labelFor="@+id/aentrada"
-        android:onClick="funAddEntrada"/>
+        android:onClick="funAddEntrada" />
+
     <TextView
         android:id="@+id/asalida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hora de salida: (formato 24h)"/>
+        android:onClick="funAddSalida"
+        android:text="Hora de salida: (formato 24h)" />
 
     <EditText
         android:id="@+id/txtAddSalida"
@@ -62,15 +76,15 @@
         android:ems="10"
         android:hint="hh:mm"
         android:labelFor="@+id/asalida"
-        android:onClick="funAddSalida"/>
+        android:onClick="funAddSalida" />
 
     <Button
         android:id="@+id/btnAdd"
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="@color/verde"
-        android:text="Guardar registro"
-        android:onClick="funAddRegistro"/>
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/green"
+        android:onClick="funAddRegistro"
+        android:text="Guardar registro" />
 
 </LinearLayout>

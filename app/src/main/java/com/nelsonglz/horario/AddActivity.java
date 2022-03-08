@@ -30,6 +30,10 @@ public class AddActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        // Colocar icono a ActionBar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+
         txtFecha = findViewById(R.id.txtAddFecha);
         txtEntrada = findViewById(R.id.txtAddEntrada);
         txtSalida = findViewById(R.id.txtAddSalida);

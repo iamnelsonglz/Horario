@@ -32,6 +32,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        try {
+            Thread.sleep(1000);
+        }catch (Exception e){
+
+        }
+
+        setTheme(R.style.Theme_Horario);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -50,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         vLista.setLayoutManager(new LinearLayoutManager(this));
 
         // Se muestran las horas disponibles
-
         funMostrar();
     }
 
@@ -69,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         // Se instancian los botones
         vBtnEntrada = findViewById(R.id.btn_entrada);
         vBtnSalida = findViewById(R.id.btn_salida);
+        vBtnManual = findViewById(R.id.btn_manual);
 
         vLista.setLayoutManager(new LinearLayoutManager(this));
 
@@ -148,9 +155,8 @@ public class MainActivity extends AppCompatActivity {
         DbHoras db = new DbHoras(MainActivity.this);
         Horas hora;
         hora = db.acumHora();
-        String h = hora+"";
 
-        if(hora.getAhoras().isEmpty() || hora.getAhoras().equals("")){
+        if(hora.getAhoras()==null){
             Toast.makeText(this,"Horas acumuladas: 0",Toast.LENGTH_LONG).show();
         }else{
             Toast.makeText(this,"Horas acumuladas: "+hora.getAhoras(),Toast.LENGTH_LONG).show();
